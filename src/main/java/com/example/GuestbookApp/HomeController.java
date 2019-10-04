@@ -40,7 +40,7 @@ public class HomeController {
         return "redirect:/";
     }
 
-    @RequestMapping("/detail/(id}")
+    @RequestMapping("/detail/{id}")
     public String showGuestbook(@PathVariable("id") long id, Model model) {
         model.addAttribute("guestbook", guestbookRepository.findById(id).get());
         return "show";

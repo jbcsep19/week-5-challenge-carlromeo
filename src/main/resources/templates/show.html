@@ -17,15 +17,13 @@
 
 
 <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <a class="navbar-brand" href="/"></a>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/">
                     <i class="fa fa-home"></i>
                     Home
                     <span class="sr-only">(current)</span>
@@ -36,15 +34,38 @@
 </nav>
 
 
+<div class="container">
+    <div class="jumbotron">
+        <center>Jennifer & Romeo's Wedding</center><p></p>
+        <a type="button" class="btn btn-secondary btn-lg"  href="/" role="button">View all Entries</a>
+    </div>
+</div>
 
-<div class="jumbotron jumbotron-fluid">
-    <a class="btn btn-primary btn-lg" href="/">Show All messages</a><br/>
-    <p class="lead">Name :<span th:text="${guestbook.name}"></span></p>
-    <h1 class="display-4">Wishes :<span th:text="${guestbook.wishes}"></span><br />
-    </h1>
 
-    <hr class="my-4">
-    Date :<span th:text="${guestbook.date}"></span><br/>
+
+<body>
+
+
+
+
+<table class="table table-striped">
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Date</th>
+        <th scope="col">Wishes</th>
+    </tr>
+        <td th:text="${guestbook.name}"></td>
+        <td th:text="${guestbook.date}"></td>
+        <td th:text="${guestbook.wishes}"></td>
+
+    </tr>
+</table>
+
+
+<!--Name: <span th:text="${guestbook.name}"></span><br />-->
+<!--Date: <span th:date="${guestbook.date}"></span><br />-->
+<!--Wishes: <p th:text="${guestbook.wishes}"></span><br />-->
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
