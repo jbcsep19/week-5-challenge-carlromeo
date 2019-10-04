@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<div class="navbar">
+    <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+
+</div>
+<form
+    action="#"
+    th:action="@{/process}"
+    th:object="${guestbook}"
+    method="post">
+<div class="form-group row">
+    <div class="col-3">
+        Name : <input class="form-control" type="text" th:field="*{'name'}" />
+        <span th:if="${#fields.hasErrors('name')}"
+              th:errors="*{name}"></span><br/>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-3">
+        Date : <input class="form-control" type="date" th:field="*{'date'}" />
+        <span th:if="${#fields.hasErrors('date')}"
+              th:errors="*{date}"></span><br/>
+    </div>
+</div>
+<div class="form-group">
+    Wishes: <textarea class="form-control" rows="3" th:field="{wishes}"></textarea>
+    <span th:if="${#fields.hasErrors('wishes')}"
+          th:errors="*{wishes}"></span><br/>
+</div>
+    <input name="submit" id="submit" type="submit" tabindex="5" value="Submit Form" class="Cbutton">
+<!--    <button class="btn btn-primary" type="submit">Submit form</button>-->
+
+
+<!--    <p>-->
+<!--        <label for="author">Name *</label>-->
+<!--        <input type="text" name="author" id="author" class="textarea" value="" size="28" tabindex="1">-->
+<!--    </p>-->
+
+<!--    <p>-->
+<!--        <label for="email">E-mail *</label>-->
+<!--        <input type="text" name="email" id="email" value="" size="28" tabindex="2" class="textarea">-->
+<!--    </p>-->
+
+<!--    <p>-->
+<!--        <label for="url"><acronym title="Uniform Resource Identifier">URI</acronym></label>-->
+<!--        <input type="text" name="url" id="url" value="" size="28" tabindex="3" class="textarea">-->
+<!--    </p>-->
+
+
+<!--    <p>-->
+<!--        <label for="comment">Comment *</label>-->
+<!--        <textarea name="comment" id="comment" cols="60" rows="10" tabindex="4" class="textarea"></textarea>-->
+<!--    </p>-->
+
+<!--    <p>-->
+
+<!--        <input type="hidden" name="comment_post_ID" value="3266" id="comment_post_ID">-->
+<!--        <input type="hidden" name="comment_parent" id="comment_parent" value="0">-->
+<!--    </p>-->
+
+</form>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

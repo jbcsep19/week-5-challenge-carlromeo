@@ -1,12 +1,14 @@
-package com.example.demo;
+package com.example.GuestbookApp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Entity
 public class Guestbook {
@@ -18,9 +20,9 @@ public class Guestbook {
     @Size(min=3, max = 20)
     private String name;
 
-    @NotNull
-    @Min(1)
-    private int date;
+
+    @JsonFormat(pattern = "dd.MM.yyyy, HH:mm:ss")
+    private Date date = new Date();
 
     @NotNull
     @Size(min=3, max = 250)
@@ -42,11 +44,11 @@ public class Guestbook {
         this.name = name;
     }
 
-    public int getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
