@@ -1,10 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        center {
+            font-family: 'Great Vibes';font-size: 88px;
+        }
+    </style>
+
 </head>
 <body>
+
+    <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/homepage"></a>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/homepage">
+                        <i class="fa fa-home"></i>
+                        Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div class="jumbotron">
+            <center>Jennifer & Romeo's Wedding</center><p></p>
+            <a type="button" class="btn btn-secondary btn-lg"  href="/add" role="button">Add a new Entry</a>
+        </div>
+    </div>
+
+
+<div class="container">
+
+    <table class="table">
+        <tr>
+            <table class="table table-striped">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Wishes</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                <tr th:each="guestbook : ${guestbooks}">
+                    <td th:text="${guestbook.name}"></td>
+                    <td th:text="${guestbook.date}"></td>
+                    <td th:text="${guestbook.wishes}"></td>
+                    <td>
+                        <a th:href="@{/update/{id}(id=${guestbook.id})}">Update</a> -
+                        <a th:href="@{/detail/{id}(id=${guestbook.id})}">Details</a> -
+                        <a th:href="@{/delete/{id}(id=${guestbook.id})}">Delete</a>
+                    </td>
+                </tr>
+            </table>
+
+    </table>
+</div>
 
 </body>
 </html>

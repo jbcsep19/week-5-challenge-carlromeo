@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -8,64 +8,51 @@
 </head>
 <body>
 
-<div class="navbar">
-    <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
 
-</div>
-<form
-    action="#"
-    th:action="@{/process}"
-    th:object="${guestbook}"
-    method="post">
+
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">
+                    <i class="fa fa-home"></i>
+                    Home
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+
+<form action="#" th:action="@{/process}" th:object="${guestbook}" method="post">
 <div class="form-group row">
     <div class="col-3">
-        Name : <input class="form-control" type="text" th:field="*{'name'}" />
+        Name : <input class="form-control" type="text" th:field="*{name}" />
         <span th:if="${#fields.hasErrors('name')}"
               th:errors="*{name}"></span><br/>
     </div>
 </div>
 <div class="form-group row">
     <div class="col-3">
-        Date : <input class="form-control" type="date" th:field="*{'date'}" />
+        Date : <input class="form-control" type="date" th:field="*{date}" />
         <span th:if="${#fields.hasErrors('date')}"
               th:errors="*{date}"></span><br/>
     </div>
 </div>
 <div class="form-group">
-    Wishes: <textarea class="form-control" rows="3" th:field="{wishes}"></textarea>
+    Wishes: <textarea class="form-control" rows="3" th:field="*{wishes}"></textarea>
     <span th:if="${#fields.hasErrors('wishes')}"
           th:errors="*{wishes}"></span><br/>
 </div>
     <input name="submit" id="submit" type="submit" tabindex="5" value="Submit Form" class="Cbutton">
-<!--    <button class="btn btn-primary" type="submit">Submit form</button>-->
-
-
-<!--    <p>-->
-<!--        <label for="author">Name *</label>-->
-<!--        <input type="text" name="author" id="author" class="textarea" value="" size="28" tabindex="1">-->
-<!--    </p>-->
-
-<!--    <p>-->
-<!--        <label for="email">E-mail *</label>-->
-<!--        <input type="text" name="email" id="email" value="" size="28" tabindex="2" class="textarea">-->
-<!--    </p>-->
-
-<!--    <p>-->
-<!--        <label for="url"><acronym title="Uniform Resource Identifier">URI</acronym></label>-->
-<!--        <input type="text" name="url" id="url" value="" size="28" tabindex="3" class="textarea">-->
-<!--    </p>-->
-
-
-<!--    <p>-->
-<!--        <label for="comment">Comment *</label>-->
-<!--        <textarea name="comment" id="comment" cols="60" rows="10" tabindex="4" class="textarea"></textarea>-->
-<!--    </p>-->
-
-<!--    <p>-->
-
-<!--        <input type="hidden" name="comment_post_ID" value="3266" id="comment_post_ID">-->
-<!--        <input type="hidden" name="comment_parent" id="comment_parent" value="0">-->
-<!--    </p>-->
 
 </form>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

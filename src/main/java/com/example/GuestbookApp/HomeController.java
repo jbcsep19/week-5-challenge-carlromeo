@@ -48,7 +48,7 @@ public class HomeController {
 
     @RequestMapping("/update/{id}")
     public String updateGuestbook(@PathVariable("id") long id, Model model) {
-        model.addAttribute("message", guestbookRepository.findById(id).get());
+        model.addAttribute("guestbook", guestbookRepository.findById(id).get());
         return "guestbookform";
     }
 
