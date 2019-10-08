@@ -13,7 +13,7 @@ public class DataLoader implements CommandLineRunner {
     public void run(String... strings) throws Exception{
         Guestbook guestbook;
         guestbook = new Guestbook();
-        guestbook.setWishes("ghcgkdagajdgsdgjldahdaljsdfgskdgfkdgfdagflsdahdlhsdhsdj");
+        guestbook.setWishes("g);
         guestbook.setName("Romeo");
 //        guestbook.setDate(01/01/2001);
         repository.save(guestbook);
